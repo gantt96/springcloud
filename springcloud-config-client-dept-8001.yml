@@ -5,20 +5,21 @@ spring:
     
 ---
 server:
-  port: 8001 # ×¢²áÖĞĞÄÕ¼ÓÃ8001¶Ë¿Ú£¬Ã°ºÅºóÃæ±ØĞëÒªÓĞ¿Õ¸ñ
+  port: 8001 # æ³¨å†Œä¸­å¿ƒå ç”¨8001ç«¯å£ï¼Œå†’å·åé¢å¿…é¡»è¦æœ‰ç©ºæ ¼
 
 spring:
   profiles: dev
   application:
     name: springcloud-config-client-dept
   datasource:
-    url: jdbc:mysql://localhost:3306/cloudDB01?characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai      # Êı¾İ¿âÃû³Æ
+    url: jdbc:mysql://localhost:3306/cloudDB01?characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai      # æ•°æ®åº“åç§°
     username: root
     password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
     
 mybatis: 
-  type-aliases-package: com.yuanleigen.entity # ËùÓĞEntity±ğÃûÀàËùÔÚ°ü
-  mapper-locations: # mapperÓ³ÉäÎÄ¼şËùÔÚÂ·¾¶
+  type-aliases-package: com.yuanleigen.entity # æ‰€æœ‰Entityåˆ«åç±»æ‰€åœ¨åŒ…
+  mapper-locations: # mapperæ˜ å°„æ–‡ä»¶æ‰€åœ¨è·¯å¾„
   - classpath:mybatis/mapper/**/*.xml
     
 eureka:
@@ -37,20 +38,21 @@ info:
       
 ---
 server:
-  port: 8001 # ×¢²áÖĞĞÄÕ¼ÓÃ7001¶Ë¿Ú£¬Ã°ºÅºóÃæ±ØĞëÒªÓĞ¿Õ¸ñ
+  port: 8001 # æ³¨å†Œä¸­å¿ƒå ç”¨7001ç«¯å£ï¼Œå†’å·åé¢å¿…é¡»è¦æœ‰ç©ºæ ¼
 
 spring:
   profiles: test
   application:
     name: springcloud-config-client-dept-test
   datasource:
-    url: jdbc:mysql://localhost:3306/cloudDB01?characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai      # Êı¾İ¿âÃû³Æ
+    url: jdbc:mysql://localhost:3306/cloudDB01?characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai      # æ•°æ®åº“åç§°
     username: root
     password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
     
 mybatis: 
-  type-aliases-package: com.yuanleigen.springcloud.entity # ËùÓĞEntity±ğÃûÀàËùÔÚ°ü
-  mapper-locations: # mapperÓ³ÉäÎÄ¼şËùÔÚÂ·¾¶
+  type-aliases-package: com.yuanleigen.springcloud.entity # æ‰€æœ‰Entityåˆ«åç±»æ‰€åœ¨åŒ…
+  mapper-locations: # mapperæ˜ å°„æ–‡ä»¶æ‰€åœ¨è·¯å¾„
   - classpath:mybatis/mapper/**/*.xml
     
 eureka:
