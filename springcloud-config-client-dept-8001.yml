@@ -29,6 +29,13 @@ eureka:
   instance:
     instance-id: dept-8001.com
     prefer-ip-address: true
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
       
 info:
   app.name: yuanleigen.springcloud-config-client-dept
@@ -68,3 +75,9 @@ info:
   company.name: www.yuanleigen.com
   build.artifactId: $project.artifactId$
   build.version: $project.version$
+  
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
