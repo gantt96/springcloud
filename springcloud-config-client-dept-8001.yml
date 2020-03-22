@@ -1,0 +1,68 @@
+spring:
+  profiles:
+    active:
+    - dev
+    
+---
+server:
+  port: 8001 # 注册中心占用8001端口，冒号后面必须要有空格
+
+spring:
+  profiles: dev
+  application:
+    name: springcloud-config-client-dept
+  datasource:
+    url: jdbc:mysql://localhost:3306/cloudDB01?characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai      # 数据库名称
+    username: root
+    password: 123456
+    
+mybatis: 
+  type-aliases-package: com.yuanleigen.entity # 所有Entity别名类所在包
+  mapper-locations: # mapper映射文件所在路径
+  - classpath:mybatis/mapper/**/*.xml
+    
+eureka:
+  client:
+    service-url: 
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+  instance:
+    instance-id: dept-8001.com
+    prefer-ip-address: true
+      
+info:
+  app.name: yuanleigen.springcloud-config-client-dept
+  company.name: www.yuanleigen.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+      
+---
+server:
+  port: 8001 # 注册中心占用7001端口，冒号后面必须要有空格
+
+spring:
+  profiles: test
+  application:
+    name: springcloud-config-client-dept-test
+  datasource:
+    url: jdbc:mysql://localhost:3306/cloudDB01?characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai      # 数据库名称
+    username: root
+    password: 123456
+    
+mybatis: 
+  type-aliases-package: com.yuanleigen.springcloud.entity # 所有Entity别名类所在包
+  mapper-locations: # mapper映射文件所在路径
+  - classpath:mybatis/mapper/**/*.xml
+    
+eureka:
+  client:
+    service-url: 
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+  instance:
+    instance-id: dept-8001.com
+    prefer-ip-address: true
+      
+info:
+  app.name: yuanleigen.springcloud-config-client-dept-test
+  company.name: www.yuanleigen.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
